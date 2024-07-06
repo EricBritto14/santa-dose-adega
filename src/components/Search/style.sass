@@ -1,0 +1,29 @@
+@use '../../styles/variables'
+
+#search-component-main
+    display: flex
+    align-items: center
+    background-color: #FFF
+    height: 40px
+    border-radius: 5px
+
+    input
+        border: 0px
+        min-height: 100%
+        width: 200px
+        padding: 8px
+        border-top-left-radius: 5px
+        border-bottom-left-radius: 5px
+        font-size: 13px
+        color: variables.$text-color-third
+
+    svg
+        height: 25px
+        width: 25px
+        margin-inline: 8px
+        cursor: pointer
+        color: variables.$text-color-primary
+        transition-duration: 500ms
+
+    svg:hover
+        color: variables.$color-amber-primary

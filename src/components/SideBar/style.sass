@@ -1,0 +1,75 @@
+@use '../../styles/variables'
+
+#side-bar
+    background-color: variables.$bg-color-secundary
+    width: 250px
+    height: 100vh
+    position: fixed
+    top: 0px
+    left: 0px
+    padding: 40px 20px 20px 20px
+    color: variables.$text-color-primary
+
+    h1
+        margin-bottom: 18px
+
+    label
+        font-size: 14px
+        font-weight: bold
+        color: variables.$text-color-secundary
+
+    ul
+        margin-block: 12px
+        list-style: none
+    
+        li
+            display: flex
+            cursor: pointer
+            font-size: 15px
+            font-weight: 500
+            padding: 12px 10px
+            margin-bottom: 14px
+            border-radius: 10px
+            align-items: center
+            transition-duration: 500ms
+
+            svg
+                margin-right: 8px
+                width: 22px
+                height: 22px
+
+        li:hover
+            background-color: variables.$color-amber-primary
+            color: #FFF
+    
+    button
+        border: 0px
+        width: 210px
+        bottom: 20px
+        display: flex
+        font-size: 15px
+        cursor: pointer
+        font-weight: 500
+        position: absolute
+        padding: 12px 10px
+        border-radius: 10px
+        align-items: center
+        transition-duration: 500ms
+        color: variables.$text-color-primary
+        background-color: variables.$bg-color-secundary
+
+        svg
+            width: 22px
+            height: 22px
+            margin-right: 8px
+
+    button:hover
+        background-color: variables.$color-amber-primary
+        color: #FFF
+
+#select-side-bar
+    background-color: variables.$color-amber-primary
+    color: #FFF
+
+#side-bar-icons:hover
+    color: #FFF
