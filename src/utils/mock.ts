@@ -1,84 +1,86 @@
 import { Product } from "../models/product";
 
 export const mockProducts : Product[] = [
-    { id: 1, name: 'Skol', amount: 100, price: 5, category: 'alcólico', purchase_price: 10 },
-    { id: 2, name: 'Brahma', amount: 200, price: 7, category: 'alcólico', purchase_price: 10 },
-    { id: 3, name: 'White Horse', amount: 150, price: 150, category: 'alcólico', purchase_price: 10 },
+    { idProduto: 1, nome: 'Skol', quantidade: 100, valor: 5, data_validade: '01/01/2028', data_cadastro: "10", tamanho: "500ml",  tipo: "comida" },
+    { idProduto: 2, nome: 'Brahma', quantidade: 200, valor: 7, data_validade: '01/01/2028', data_cadastro: "10", tamanho: "500ml",  tipo: "comida" },
+    { idProduto: 3, nome: 'White Horse', quantidade: 150, valor: 150, data_validade: '01/01/2028', data_cadastro: "10", tamanho: "500ml",  tipo: "comida" },
 
-    { id: 4, name: 'Ruffles', amount: 10, price: 8, category: 'comida', purchase_price: 10 },
-    { id: 5, name: 'Doritos', amount: 8, price: 10, category: 'comida', purchase_price: 10 },
-    { id: 6, name: 'Cheetos', amount: 15, price: 6, category: 'comida', purchase_price: 10 },
+    { idProduto: 4, nome: 'Ruffles', quantidade: 10, valor: 8, data_validade: '01/01/2028', data_cadastro: "10", tamanho: "500ml",  tipo: "comida" },
+    { idProduto: 5, nome: 'Doritos', quantidade: 8, valor: 10, data_validade: '01/01/2028', data_cadastro: "10", tamanho: "500ml",  tipo: "comida" },
+    { idProduto: 6, nome: 'Cheetos', quantidade: 15, valor: 6, data_validade: '01/01/2028', data_cadastro: "10", tamanho: "500ml",  tipo: "comida" },
 
-    { id: 7, name: 'Coca-cola garrafa 2L', amount: 100, price: 10, category: 'não alcólico', purchase_price: 10 },
-    { id: 8, name: 'Guarana garrafa 1L', amount: 100, price: 8.45, category: 'não alcólico', purchase_price: 10 },
-    { id: 9, name: 'Pepsi 500ml', amount: 100, price: 5, category: 'não alcólico', purchase_price: 10 },
-    { id: 10, name: 'Fanta uva 500ml', amount: 100, price: 5, category: 'não alcólico', purchase_price: 10 },
+    { idProduto: 7, nome: 'Coca-cola garrafa 2L', quantidade: 100, valor: 10, data_validade: '01/01/2028', data_cadastro: "10", tamanho: "500ml",  tipo: "comida" },
+    { idProduto: 8, nome: 'Guarana garrafa 1L', quantidade: 100, valor: 8.45, data_validade: '01/01/2028', data_cadastro: "10", tamanho: "500ml",  tipo: "comida" },
+    { idProduto: 9, nome: 'Pepsi 500ml', quantidade: 100, valor: 5, data_validade: '01/01/2028', data_cadastro: "10", tamanho: "500ml",  tipo: "comida" },
+    { idProduto: 10, nome: 'Fanta uva 500ml', quantidade: 100, valor: 5, data_validade: '01/01/2028', data_cadastro: "10", tamanho: "500ml",  tipo: "comida" },
 
 
 
     
 
-    { id: 11, name: 'Skol', amount: 100, price: 5, category: 'alcólico', purchase_price: 10 },
-    { id: 12, name: 'Brahma', amount: 200, price: 7, category: 'alcólico', purchase_price: 10 },
-    { id: 13, name: 'White Horse', amount: 150, price: 150, category: 'alcólico', purchase_price: 10 },
+    { idProduto: 11, nome: '2 Skol', quantidade: 100, valor: 5, data_validade: '01/01/2028', data_cadastro: "10", tamanho: "500ml",  tipo: "comida" },
+    { idProduto: 12, nome: '2 Brahma', quantidade: 200, valor: 7, data_validade: '01/01/2028', data_cadastro: "10", tamanho: "500ml",  tipo: "comida" },
+    { idProduto: 13, nome: '2 White Horse', quantidade: 150, valor: 150, data_validade: '01/01/2028', data_cadastro: "10", tamanho: "500ml",  tipo: "comida" },
 
-    { id: 14, name: 'Ruffles', amount: 10, price: 8, category: 'comida', purchase_price: 10 },
-    { id: 15, name: 'Doritos', amount: 8, price: 10, category: 'comida', purchase_price: 10 },
-    { id: 16, name: 'Cheetos', amount: 15, price: 6, category: 'comida', purchase_price: 10 },
+    { idProduto: 14, nome: '2 Ruffles', quantidade: 10, valor: 8, data_validade: '01/01/2028', data_cadastro: "10", tamanho: "500ml",  tipo: "comida" },
+    { idProduto: 15, nome: '2 Doritos', quantidade: 8, valor: 10, data_validade: '01/01/2028', data_cadastro: "10", tamanho: "500ml",  tipo: "comida" },
+    { idProduto: 16, nome: '2 Cheetos', quantidade: 15, valor: 6, data_validade: '01/01/2028', data_cadastro: "10", tamanho: "500ml",  tipo: "comida" },
 
-    { id: 17, name: 'Coca-cola garrafa 2L', amount: 100, price: 10, category: 'não alcólico', purchase_price: 10 },
-    { id: 18, name: 'Guarana garrafa 1L', amount: 100, price: 8.45, category: 'não alcólico', purchase_price: 10 },
-    { id: 19, name: 'Pepsi 500ml', amount: 100, price: 5, category: 'não alcólico', purchase_price: 10 },
-    { id: 20, name: 'Fanta uva 500ml', amount: 100, price: 5, category: 'não alcólico', purchase_price: 10 },
-
-
-
-
-
-    { id: 21, name: 'Skol', amount: 100, price: 5, category: 'alcólico', purchase_price: 10 },
-    { id: 22, name: 'Brahma', amount: 200, price: 7, category: 'alcólico', purchase_price: 10 },
-    { id: 23, name: 'White Horse', amount: 150, price: 150, category: 'alcólico', purchase_price: 10 },
-
-    { id: 24, name: 'Ruffles', amount: 10, price: 8, category: 'comida', purchase_price: 10 },
-    { id: 25, name: 'Doritos', amount: 8, price: 10, category: 'comida', purchase_price: 10 },
-    { id: 26, name: 'Cheetos', amount: 15, price: 6, category: 'comida', purchase_price: 10 },
-
-    { id: 27, name: 'Coca-cola garrafa 2L', amount: 100, price: 10, category: 'não alcólico', purchase_price: 10 },
-    { id: 28, name: 'Guarana garrafa 1L', amount: 100, price: 8.45, category: 'não alcólico', purchase_price: 10 },
-    { id: 29, name: 'Pepsi 500ml', amount: 100, price: 5, category: 'não alcólico', purchase_price: 10 },
-    { id: 30, name: 'Fanta uva 500ml', amount: 100, price: 5, category: 'não alcólico', purchase_price: 10 },
+    { idProduto: 17, nome: '2 Coca-cola garrafa 2L', quantidade: 100, valor: 10, data_validade: '01/01/2028', data_cadastro: "10", tamanho: "500ml",  tipo: "comida" },
+    { idProduto: 18, nome: '2 Guarana garrafa 1L', quantidade: 100, valor: 8.45, data_validade: '01/01/2028', data_cadastro: "10", tamanho: "500ml",  tipo: "comida" },
+    { idProduto: 19, nome: '2 Pepsi 500ml', quantidade: 100, valor: 5, data_validade: '01/01/2028', data_cadastro: "10", tamanho: "500ml",  tipo: "comida" },
+    { idProduto: 20, nome: '2 Fanta uva 500ml', quantidade: 100, valor: 5, data_validade: '01/01/2028', data_cadastro: "10", tamanho: "500ml",  tipo: "comida" },
 
 
 
 
 
-    { id: 41, name: 'Skol', amount: 100, price: 5, category: 'alcólico', purchase_price: 10 },
-    { id: 42, name: 'Brahma', amount: 200, price: 7, category: 'alcólico', purchase_price: 10 },
-    { id: 43, name: 'White Horse', amount: 150, price: 150, category: 'alcólico', purchase_price: 10 },
+    { idProduto: 21, nome: '3 Skol', quantidade: 100, valor: 5, data_validade: '01/01/2028', data_cadastro: "10", tamanho: "500ml",  tipo: "comida" },
+    { idProduto: 22, nome: '3 Brahma', quantidade: 200, valor: 7, data_validade: '01/01/2028', data_cadastro: "10", tamanho: "500ml",  tipo: "comida" },
+    { idProduto: 23, nome: '3 White Horse', quantidade: 150, valor: 150, data_validade: '01/01/2028', data_cadastro: "10", tamanho: "500ml",  tipo: "comida" },
 
-    { id: 44, name: 'Ruffles', amount: 10, price: 8, category: 'comida', purchase_price: 10 },
-    { id: 45, name: 'Doritos', amount: 8, price: 10, category: 'comida', purchase_price: 10 },
-    { id: 46, name: 'Cheetos', amount: 15, price: 6, category: 'comida', purchase_price: 10 },
+    { idProduto: 24, nome: '3 Ruffles', quantidade: 10, valor: 8, data_validade: '01/01/2028', data_cadastro: "10", tamanho: "500ml",  tipo: "comida" },
+    { idProduto: 25, nome: '3 Doritos', quantidade: 8, valor: 10, data_validade: '01/01/2028', data_cadastro: "10", tamanho: "500ml",  tipo: "comida" },
+    { idProduto: 26, nome: '3 Cheetos', quantidade: 15, valor: 6, data_validade: '01/01/2028', data_cadastro: "10", tamanho: "500ml",  tipo: "comida" },
 
-    { id: 47, name: 'Coca-cola garrafa 2L', amount: 100, price: 10, category: 'não alcólico', purchase_price: 10 },
-    { id: 48, name: 'Guarana garrafa 1L', amount: 100, price: 8.45, category: 'não alcólico', purchase_price: 10 },
-    { id: 49, name: 'Pepsi 500ml', amount: 100, price: 5, category: 'não alcólico', purchase_price: 10 },
-    { id: 50, name: 'Fanta uva 500ml', amount: 100, price: 5, category: 'não alcólico', purchase_price: 10 },
-
-
+    { idProduto: 27, nome: '3 Coca-cola garrafa 2L', quantidade: 100, valor: 10, data_validade: '01/01/2028', data_cadastro: "10", tamanho: "500ml",  tipo: "comida" },
+    { idProduto: 28, nome: '3 Guarana garrafa 1L', quantidade: 100, valor: 8.45, data_validade: '01/01/2028', data_cadastro: "10", tamanho: "500ml",  tipo: "comida" },
+    { idProduto: 29, nome: '3 Pepsi 500ml', quantidade: 100, valor: 5, data_validade: '01/01/2028', data_cadastro: "10", tamanho: "500ml",  tipo: "comida" },
+    { idProduto: 30, nome: '3 Fanta uva 500ml', quantidade: 100, valor: 5, data_validade: '01/01/2028', data_cadastro: "10", tamanho: "500ml",  tipo: "comida" },
 
 
 
-    { id: 51, name: 'Skol', amount: 100, price: 5, category: 'alcólico', purchase_price: 10 },
-    { id: 52, name: 'Brahma', amount: 200, price: 7, category: 'alcólico', purchase_price: 10 },
-    { id: 53, name: 'White Horse', amount: 150, price: 150, category: 'alcólico', purchase_price: 10 },
 
-    { id: 54, name: 'Ruffles', amount: 10, price: 8, category: 'comida', purchase_price: 10 },
-    { id: 55, name: 'Doritos', amount: 8, price: 10, category: 'comida', purchase_price: 10 },
-    { id: 56, name: 'Cheetos', amount: 15, price: 6, category: 'comida', purchase_price: 10 },
 
-    { id: 57, name: 'Coca-cola garrafa 2L', amount: 100, price: 10, category: 'não alcólico', purchase_price: 10 },
-    { id: 58, name: 'Guarana garrafa 1L', amount: 100, price: 8.45, category: 'não alcólico', purchase_price: 10 },
-    { id: 59, name: 'Pepsi 500ml', amount: 100, price: 5, category: 'não alcólico', purchase_price: 10 },
-    { id: 60, name: 'Fanta uva 500ml', amount: 100, price: 5, category: 'não alcólico', purchase_price: 10 },
+    { idProduto: 41, nome: '4 Skol', quantidade: 100, valor: 5, data_validade: '01/01/2028', data_cadastro: "10", tamanho: "500ml",  tipo: "comida" },
+    { idProduto: 42, nome: '4 Brahma', quantidade: 200, valor: 7, data_validade: '01/01/2028', data_cadastro: "10", tamanho: "500ml",  tipo: "comida" },
+    { idProduto: 43, nome: '4 White Horse', quantidade: 150, valor: 150, data_validade: '01/01/2028', data_cadastro: "10", tamanho: "500ml",  tipo: "comida" },
+
+    { idProduto: 44, nome: '4 Ruffles', quantidade: 10, valor: 8, data_validade: '01/01/2028', data_cadastro: "10", tamanho: "500ml",  tipo: "comida" },
+    { idProduto: 45, nome: '4 Doritos', quantidade: 8, valor: 10, data_validade: '01/01/2028', data_cadastro: "10", tamanho: "500ml",  tipo: "comida" },
+    { idProduto: 46, nome: '4 Cheetos', quantidade: 15, valor: 6, data_validade: '01/01/2028', data_cadastro: "10", tamanho: "500ml",  tipo: "comida" },
+
+    { idProduto: 47, nome: '4 Coca-cola garrafa 2L', quantidade: 100, valor: 10, data_validade: '01/01/2028', data_cadastro: "10", tamanho: "500ml",  tipo: "comida" },
+    { idProduto: 48, nome: '4 Guarana garrafa 1L', quantidade: 100, valor: 8.45, data_validade: '01/01/2028', data_cadastro: "10", tamanho: "500ml",  tipo: "comida" },
+    { idProduto: 49, nome: '4 Pepsi 500ml', quantidade: 100, valor: 5, data_validade: '01/01/2028', data_cadastro: "10", tamanho: "500ml",  tipo: "comida" },
+    { idProduto: 50, nome: '4 Fanta uva 500ml', quantidade: 100, valor: 5, data_validade: '01/01/2028', data_cadastro: "10", tamanho: "500ml",  tipo: "comida" },
+
+
+
+
+
+    { idProduto: 51, nome: '5 Skol', quantidade: 100, valor: 5, data_validade: '01/01/2028', data_cadastro: "10", tamanho: "500ml",  tipo: "comida" },
+    { idProduto: 52, nome: '5 Brahma', quantidade: 200, valor: 7, data_validade: '01/01/2028', data_cadastro: "10", tamanho: "500ml",  tipo: "comida" },
+    { idProduto: 53, nome: '5 White Horse', quantidade: 150, valor: 150, data_validade: '01/01/2028', data_cadastro: "10", tamanho: "500ml",  tipo: "comida" },
+
+    { idProduto: 54, nome: '5 Ruffles', quantidade: 10, valor: 8, data_validade: '01/01/2028', data_cadastro: "10", tamanho: "500ml",  tipo: "comida" },
+    { idProduto: 55, nome: '5 Doritos', quantidade: 8, valor: 10, data_validade: '01/01/2028', data_cadastro: "10", tamanho: "500ml",  tipo: "comida" },
+    { idProduto: 56, nome: '5 Cheetos', quantidade: 15, valor: 6, data_validade: '01/01/2028', data_cadastro: "10", tamanho: "500ml",  tipo: "comida" },
+
+    { idProduto: 57, nome: '5 Coca-cola garrafa 2L', quantidade: 100, valor: 10, data_validade: '01/01/2028', data_cadastro: "10", tamanho: "500ml",  tipo: "comida" },
+    { idProduto: 58, nome: '5 Guarana garrafa 1L', quantidade: 100, valor: 8.45, data_validade: '01/01/2028', data_cadastro: "10", tamanho: "500ml",  tipo: "comida" },
+    { idProduto: 59, nome: '5 Pepsi 500ml', quantidade: 100, valor: 5, data_validade: '01/01/2028', data_cadastro: "10", tamanho: "500ml",  tipo: "comida" },
+    { idProduto: 60, nome: '5 Fanta uva 500ml', quantidade: 100, valor: 5, data_validade: '01/01/2028', data_cadastro: "10", tamanho: "500ml",  tipo: "comida" },
+
+    { idProduto: 60, nome: '6 Fanta uva 500ml', quantidade: 100, valor: 5, data_validade: '01/01/2028', data_cadastro: "10", tamanho: "500ml",  tipo: "comida" },
 ]

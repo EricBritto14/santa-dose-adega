@@ -1,7 +1,16 @@
-import { FileDownload } from '@mui/icons-material';
+import { FileDownload, ArrowBackIosNew, ArrowForwardIos } from '@mui/icons-material';
 import './style.sass';
 
-const Table = ({ children } : { children : any }) => {
+const Table = (
+    { 
+        children, 
+        onNextPage, 
+        onReturnPage 
+    } : { 
+        children : any, 
+        onNextPage : any, 
+        onReturnPage : any 
+    }) => {
     return (
         <div id='table-component-main'>
             <div id='table-title' >
@@ -14,7 +23,7 @@ const Table = ({ children } : { children : any }) => {
             <div id='table-header' >
                 <ul>
                     <li style={{ width: "100%" }} >Nome</li>
-                    <li>Categoria</li>
+                    <li>Validade</li>
                     <li>Quantidade</li>
                     <li>Preço</li>
                     <li style={{ justifyContent: "center", paddingLeft: "0px" }} >Opções</li>
@@ -22,6 +31,14 @@ const Table = ({ children } : { children : any }) => {
             </div>
             <div id="table-content">
                 {children}
+            </div>
+            <div id="table-section-select">
+                <ArrowBackIosNew 
+                    onClick={onReturnPage}
+                />
+                <ArrowForwardIos
+                    onClick={onNextPage}
+                />
             </div>
         </div>
     )

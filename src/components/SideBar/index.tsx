@@ -9,7 +9,7 @@ const SideBar = () => {
 
     return (
         <aside id='side-bar'>
-            <h1>Gestão</h1>
+            <h1>Páginas</h1>
             <label>Menu</label>
             <ul>
                 <li 
