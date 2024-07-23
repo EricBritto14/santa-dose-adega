@@ -2,6 +2,7 @@ import { createHashRouter } from "react-router-dom";
 
 import StandartLayout from './layouts/StandartLayout';
 
+import Login from "@Pages/Login";
 import HomePage from './pages/Home';
 import ProductList from "./pages/ProductList";
 import ProductForm from "./pages/ProductForm";
@@ -28,6 +29,16 @@ const routers = createHashRouter([
                 path: "/user-list",
                 element: <UserList/>
             },
+        ]
+    },
+    {
+        path: "",
+        element: null,
+        children: [
+            {
+                path: "/login",
+                element: <Login/>
+            }
         ]
     }
 ])

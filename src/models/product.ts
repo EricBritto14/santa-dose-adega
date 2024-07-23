@@ -1,9 +1,11 @@
 
 export type Product = {
-  id: number | null,
-  name: string,
-  price: number,
-  amount: number,
-  category: string,
-  purchase_price: number,
+  idProduto: number | null,
+  tipo: string,
+  nome: string,
+  tamanho: string,
+  data_cadastro: string,
+  quantidade: number,
+  valor: number,
+  data_validade: string,
 }
