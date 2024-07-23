@@ -12,6 +12,7 @@ export default defineConfig({
       "@Pages": path.resolve(__dirname, "src/pages"),
       "@Models": path.resolve(__dirname, "src/models"),
       "@Utils": path.resolve(__dirname, "src/utils"),
+      "@Api": path.resolve(__dirname, "src/api"),
     }
   },
 })
