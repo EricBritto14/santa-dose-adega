@@ -1,6 +1,6 @@
 import { Product } from '@Models/product';
-import { selectMethod } from '@api/methods';
-import { findRouter }  from '@api/mapRouters';
+import { selectMethod } from '@Api/methods';
+import { findRouter }  from '@Api/mapRouters';
 
 export async function createProduct({ product } : { product : Product }) {
     let request = await findRouter("postProduct");
