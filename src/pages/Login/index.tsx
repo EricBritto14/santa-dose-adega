@@ -1,16 +1,27 @@
 import React, { useState, useEffect } from "react";
 import { PersonOutline, LockOpen } from "@mui/icons-material";
+import { useNavigate } from 'react-router-dom';
 
 import { LoginRequest } from "@Api/services/auth";
 import { User } from "@Models/user";
 
+import Loading from "@Components/Loading";
+import Notification, { NotificationType } from "@Components/Notification";
+
 import "./style.sass";
 
 const Login = () => {
-    const [ user, setUser ] = useState<User>({
+    const navigate = useNavigate();
+    const [loading, setLoading] = useState<boolean>(false);
+    const [error, setError] = useState<NotificationType>({
+        show: false,
+        message: "",
+        type: "success"
+    });
+    const [user, setUser] = useState<User>({
         username: "",
         password: ""
-    });  
+    });
 
     const changeUserArgs = (value : string, key : string) => {
         setUser(prevState => ({
@@ -20,18 +31,37 @@ const Login = () => {
     }
 
     async function userRequest() {
-        const response = await LoginRequest(user);
+        const data = await LoginRequest(user);
 
-        console.log("RESPONSE: ", response);
+        if(data.error) {
+            setError({
+                show: true,
+                message: `${data.response.response.data.detail}`,
+                type: "error"
+            });
+            setTimeout(() => setError(prevState => ({
+                ...prevState,
+                show : false,
+            })), 3000);
+            setLoading(false);
+        } else {
+            localStorage.setItem("token", data.response.token);
+            navigate("/");
+        }
     }
 
     const handleSubmit = (event : any) => {
         event.preventDefault();
+        setLoading(true);
         userRequest();
     }
 
     return (
         <div id="login-page-main">
+            <Notification note={error}/>
+            {
+                loading && <Loading/>
+            }
             <form onSubmit={handleSubmit}>
                 <img src="../../../public/beer.svg" alt="beer" />
                 <div id="input-content-login">

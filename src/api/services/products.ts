@@ -21,7 +21,7 @@ export async function listProducts() {
     );
 }
 
-export async function getProduct({ id } : { id : number }) {
+export async function getProduct(id : number) {
     let request = await findRouter("getProduct");
     let url : string = `${request.router}${id}`
 
@@ -31,7 +31,7 @@ export async function getProduct({ id } : { id : number }) {
     );
 }
 
-export async function updateProduct({ id, product } : { id : number, product : Product }) {
+export async function updateProduct(id : number, product : Product) {
     let request = await findRouter("updateProduct");
     let url : string = `${request.router}${id}`
 
@@ -42,7 +42,7 @@ export async function updateProduct({ id, product } : { id : number, product : P
     );
 }
 
-export async function deleteProduct({ id } : { id : number }) {
+export async function deleteProduct(id : number) {
     let request = await findRouter("deleteProduct");
     let url : string = `${request.router}${id}`
 

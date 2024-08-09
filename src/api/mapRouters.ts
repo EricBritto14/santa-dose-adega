@@ -9,7 +9,7 @@ const backEndRouters : Router[] = [
     {
         router: "/login",
         name: "login",
-        method: "POST"
+        method: "POST_FORM_ENCODED"
     },
     {
         router: "/produtos/produto_id/",

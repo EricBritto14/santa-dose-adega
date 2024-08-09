@@ -1,6 +1,6 @@
 
 export type Product = {
-  idProduto: number | null,
+  idProduto: number,
   tipo: string,
   nome: string,
   tamanho: string,

@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const axiosInstance = axios.create({
-    baseURL: "https://fastapi-adega.onrender.com",
+    baseURL: "http://localhost:8000",
 });
 
 export async function selectMethod(
@@ -18,7 +18,15 @@ export async function selectMethod(
 
     const config = {
         headers : {
-            Authorization: "Bearer " + token
+            Authorization: "Bearer " + token,
+            "Content-Type": "application/json",
+        }
+    }
+
+    const configEncoded = {
+        headers : {
+            Authorization: "Bearer " + token,
+            "Content-Type": "application/x-www-form-urlencoded",
         }
     }
 
@@ -31,8 +39,22 @@ export async function selectMethod(
 
     switch (method) {
         case "GET":
-            const getResponse = await axiosInstance.get(url, config);
-            return getResponse.data;
+            try {
+                const { data } = await axiosInstance.get(url, config);
+                return data;
+            } catch (error) {
+                return { error: true, response: error };
+            }
+
+        case "POST_FORM_ENCODED":
+            try {
+                const postFormResponse = await axiosInstance.post(url, new URLSearchParams(body), configEncoded);
+                return { error: false, response: postFormResponse.data };
+            } catch (error) {
+                // const errorResponse = error.response.data;
+                // return { error: true, response: errorResponse };
+                return { error: true, response: error };
+            }
 
         case "POST":
             try {
@@ -49,8 +71,14 @@ export async function selectMethod(
             return putResponse;
 
         case "DELETE":
-            const deleteResponse = axiosInstance.delete(url, config);
-            return deleteResponse;
+            try {
+                const deleteResponse = await axiosInstance.delete(url, config);
+                return deleteResponse;
+            } catch (error) {
+                return { error: true, response: error };
+            }
+            // const deleteResponse = axiosInstance.delete(url, config);
+            // return deleteResponse;
 
         case "MULTIPART_POST":
             try {

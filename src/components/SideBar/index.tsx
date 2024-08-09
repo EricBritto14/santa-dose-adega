@@ -7,6 +7,11 @@ const SideBar = () => {
     const location = useLocation();
     const navigate = useNavigate();
 
+    const logout = () => {
+        localStorage.removeItem("token");
+        navigate('/login');
+    }
+
     return (
         <aside id='side-bar'>
             <h1>Páginas</h1>
@@ -41,7 +46,7 @@ const SideBar = () => {
                     Lista de usuários
                 </li>
             </ul>
-            <button>
+            <button onClick={logout}>
                 <Logout/>
                 Sair
             </button>
