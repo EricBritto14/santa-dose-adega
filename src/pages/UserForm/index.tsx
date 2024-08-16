@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import { LockReset, Logout, AccountBox, AccountCircle } from '@mui/icons-material';
 
 import Title from "@Components/Title";
 import Input from "@Components/Input";
 import Switch from "@Components/Switch";
+import Menu, { OptionMenuType } from '@Components/Menu';
 import Notification, { NotificationType } from "@Components/Notification";
 import Loading from "@Components/Loading";
 
@@ -29,6 +31,11 @@ const UserForm = () => {
         senha: "",
         is_admin: false
     })
+
+    const logout = () => {
+        localStorage.removeItem("token");
+        navigate('/login');
+    }
 
     const changeUserParams = (key : string, value : string | boolean) => {
         setUser(prevState => ({
@@ -126,6 +133,17 @@ const UserForm = () => {
                 <Title
                     title="Cadastro de usuário"
                     subTitle="Cadastre ou edite um usuário no sistema preenchendo o formulário"
+                />
+                <Menu
+                    icon={<AccountCircle style={{ color: "#9A9494" }}/>}
+                    options={[
+                        { label: "Editar perfil", onPress: () => navigate("/profile-form"), icon: <AccountBox/> },
+                        { label: "Trocar senha", onPress: () => navigate("/change-password"), icon: <LockReset/> },
+                        { label: "Sair", onPress: () => logout(), icon: <Logout/> }
+                    ] as OptionMenuType[]}
+                    style={{
+                        margin: "0px 10px 0px 20px"
+                    }}
                 />
             </div>
             <form id="user-form-content" onSubmit={handleSubmit}>

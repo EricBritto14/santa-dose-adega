@@ -34,6 +34,11 @@ const UserList = () => {
     const [dataUsers, setDataUsers] = useState<User[]>([]);
     const [usersList, setUsersList] = useState<User[]>([]);
 
+    const logout = () => {
+        localStorage.removeItem("token");
+        navigate('/login');
+    }
+
     const setRangeList = (start : number, amount : number) => {
         let rangeList : User[] = [];
         let dataBase = search && results ? results : dataUsers;
@@ -148,9 +153,9 @@ const UserList = () => {
                     <Menu
                         icon={<AccountCircle style={{ color: "#9A9494" }}/>}
                         options={[
-                            { label: "Editar perfil", onPress: () => console.log("EDIT"), icon: <AccountBox/> },
-                            { label: "Trocar senha", onPress: () => console.log("CHANGE"), icon: <LockReset/> },
-                            { label: "Sair", onPress: () => console.log("EXIT"), icon: <Logout/> }
+                            { label: "Editar perfil", onPress: () => navigate("/profile-form"), icon: <AccountBox/> },
+                            { label: "Trocar senha", onPress: () => navigate("/change-password"), icon: <LockReset/> },
+                            { label: "Sair", onPress: () => logout(), icon: <Logout/> }
                         ] as OptionMenuType[]}
                         style={{
                             margin: "0px 10px 0px 20px"

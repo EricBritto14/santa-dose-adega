@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import { LockReset, Logout, AccountBox, AccountCircle } from '@mui/icons-material';
 
 import Title from "@Components/Title";
 import Input from "@Components/Input";
 import SelectOption from '@Components/SelectOption';
 import SelectNumber from "@Components/SelectNumber";
+import Menu, { OptionMenuType } from '@Components/Menu';
 import Notification, { NotificationType } from "@Components/Notification";
 import Loading from "@Components/Loading";
 import InputWithSelect from "@Components/InputWithSelect";
@@ -35,6 +37,11 @@ const ProductForm = () => {
         data_validade: '',
         tamanho: '',
     });
+
+    const logout = () => {
+        localStorage.removeItem("token");
+        navigate('/login');
+    }
 
     const changeProduct = (key : string, value : string | number) => {
         setProduct(prevState => ({
@@ -149,6 +156,17 @@ const ProductForm = () => {
                 <Title
                     title="Cadastro de produto"
                     subTitle="Cadastre ou edite um produto no sistema preenchendo o formulário"
+                />
+                <Menu
+                    icon={<AccountCircle style={{ color: "#9A9494" }}/>}
+                    options={[
+                        { label: "Editar perfil", onPress: () => navigate("/profile-form"), icon: <AccountBox/> },
+                        { label: "Trocar senha", onPress: () => navigate("/change-password"), icon: <LockReset/> },
+                        { label: "Sair", onPress: () => logout(), icon: <Logout/> }
+                    ] as OptionMenuType[]}
+                    style={{
+                        margin: "0px 10px 0px 20px"
+                    }}
                 />
             </div>
             <form id='product-form-content' onSubmit={handleSubmit}>

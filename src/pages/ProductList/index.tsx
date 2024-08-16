@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Clear, Edit, ReportGmailerrorred } from '@mui/icons-material';
+import { Clear, Edit, LockReset, Logout, AccountBox, AccountCircle } from '@mui/icons-material';
 import { useNavigate } from "react-router-dom";
 
 import Title from '@Components/Title';
@@ -7,6 +7,7 @@ import Table from '@Components/Table';
 import Search from '@Components/Search';
 import DeleteModal from '@Components/DeleteModal';
 import Loading from '@Components/Loading';
+import Menu, { OptionMenuType } from '@Components/Menu';
 import Notification, { NotificationType } from '@Components/Notification';
 
 import { listProducts, deleteProduct } from '@Api/services/products';
@@ -14,7 +15,6 @@ import { listProducts, deleteProduct } from '@Api/services/products';
 import { exportExcelProduct } from '@Utils/exportExcel';
 import { Product } from '@Models/product';
 import formatPrice from '@Utils/formatPrice';
-import { mockProducts } from '@Utils/mock';
 
 import './style.sass';
 
@@ -36,6 +36,11 @@ const HomePage = () => {
   const [results, setResults] = useState<Product[]>();
   const [productList, setProductList] = useState<Product[]>([]);
   const [dataProduct, setDataProduct] = useState<Product[]>([]);
+
+  const logout = () => {
+    localStorage.removeItem("token");
+    navigate('/login');
+}
 
   const setRangeList = (start : number, amount : number) => {
     let rangeList : Product[] = [];
@@ -146,11 +151,24 @@ const HomePage = () => {
           title='Lista de produtos'
           subTitle='Veja a lista de produtos cadastrados no sistema'
         />
-        <Search
-          placeholder='Pesquise por um produto'
-          value={search}
-          setValue={setSearch}
-        />
+        <div id='product-list-header-content'>
+          <Search
+            placeholder='Pesquise por um produto'
+            value={search}
+            setValue={setSearch}
+          />
+          <Menu
+            icon={<AccountCircle style={{ color: "#9A9494" }}/>}
+            options={[
+              { label: "Editar perfil", onPress: () => navigate("/profile-form"), icon: <AccountBox/> },
+              { label: "Trocar senha", onPress: () => navigate("/change-password"), icon: <LockReset/> },
+              { label: "Sair", onPress: () => logout(), icon: <Logout/> }
+            ] as OptionMenuType[]}
+            style={{
+              margin: "0px 10px 0px 20px"
+            }}
+          />
+        </div>
       </div>
       <Table
         onNextPage={() => setRangeList(startPage + 10, 10)}
