@@ -7,6 +7,7 @@ import HomePage from './pages/Home';
 import ProductList from "./pages/ProductList";
 import ProductForm from "./pages/ProductForm";
 import UserList from "./pages/UserList";
+import UserForm from "@Pages/UserForm";
 
 const routers = createHashRouter([
     {
@@ -26,8 +27,20 @@ const routers = createHashRouter([
                 element: <ProductForm/>
             },
             {
+                path: "/product-form/:id",
+                element: <ProductForm/>
+            },
+            {
                 path: "/user-list",
                 element: <UserList/>
+            },
+            {
+                path: "/user-form",
+                element: <UserForm/>
+            },
+            {
+                path: "/user-form/:id",
+                element: <UserForm/>
             },
         ]
     },

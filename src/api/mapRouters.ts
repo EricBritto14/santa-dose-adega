@@ -11,6 +11,8 @@ const backEndRouters : Router[] = [
         name: "login",
         method: "POST_FORM_ENCODED"
     },
+
+
     {
         router: "/produtos/produto_id/",
         name: "getProduct",
@@ -35,6 +37,33 @@ const backEndRouters : Router[] = [
         router: "/produtos/delete_by_id/",
         name: "deleteProduct",
         method: "DELETE"
+    },
+
+
+    {
+        router: "/usuarios",
+        name: "listUsers",
+        method: "GET",
+    },
+    {
+        router: "/usuarios/get_by_id/",
+        name: "getUser",
+        method: "GET",
+    },
+    {
+        router: "/usuarios/adicionar",
+        name: "createUser",
+        method: "POST",
+    },
+    {
+        router: "/usuarios/atualizar_by_id/",
+        name: "updateUser",
+        method: "PUT",
+    },
+    {
+        router: "/users/delete_by_id/",
+        name: "deleteUser",
+        method: "DELETE",
     },
 ]
 
