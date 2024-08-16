@@ -1,4 +1,5 @@
-import React from 'react';
+import React,  { useState } from 'react';
+import { Visibility, VisibilityOff } from '@mui/icons-material';
 
 import './style.sass';
 
@@ -15,14 +16,27 @@ const Input = ({
     setValue : any, 
     width? : string 
 }) => {  
+    const [visibilityPassword, setVisibilityPassword] = useState<boolean>(false);
+
     return (
         <div id='input-component-main' style={{ width: width }}>
             <label>{title}</label>
-            <input 
-                type={type} 
-                value={value}
-                onChange={(element) => setValue(element.target.value)}
-            />
+            <div id='input-component-container'>
+                <input 
+                    type={type === "password" && visibilityPassword ? "text" : type} 
+                    value={value}
+                    onChange={(element) => setValue(element.target.value)}
+                />
+                {
+                    type === "password" && (
+                        visibilityPassword ? (
+                            <Visibility onClick={() => setVisibilityPassword(!visibilityPassword)}/>
+                        ) : (
+                            <VisibilityOff onClick={() => setVisibilityPassword(!visibilityPassword)}/>
+                        )
+                    )
+                }
+            </div>
         </div>
     )
 }
