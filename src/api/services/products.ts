@@ -2,7 +2,7 @@ import { Product } from '@Models/product';
 import { selectMethod } from '@Api/methods';
 import { findRouter }  from '@Api/mapRouters';
 
-export async function createProduct({ product } : { product : Product }) {
+export async function createProduct(product : Product) {
     let request = await findRouter("postProduct");
 
     return selectMethod(
@@ -31,9 +31,9 @@ export async function getProduct(id : number) {
     );
 }
 
-export async function updateProduct(id : number, product : Product) {
+export async function updateProduct(product : Product) {
     let request = await findRouter("updateProduct");
-    let url : string = `${request.router}${id}`
+    let url : string = `${request.router}${product.idProduto}`
 
     return selectMethod(
         url,
