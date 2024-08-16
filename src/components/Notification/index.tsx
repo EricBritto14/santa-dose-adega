@@ -23,7 +23,7 @@ const Notification = ({ note } : { note : NotificationType }) => {
                     <div id="notification-component-main" style={{ backgroundColor: "#E5FFDB" }}>
                         <CheckCircleOutline style={{ color: "#37B904" }}/>
                         <div id="notification-content">
-                            <label style={{ color: "#37B904" }}>SUCESSO</label>
+                            <label style={{ color: "#37B904" }}>SUCESSO!</label>
                             <span style={{ color: "#37B904" }}>{note.message}</span>
                         </div>
                     </div>
@@ -35,7 +35,7 @@ const Notification = ({ note } : { note : NotificationType }) => {
                     <div id="notification-component-main" style={{ backgroundColor: "#FFDBDB" }}>
                         <HighlightOff style={{ color: "#E11D48" }}/>
                         <div id="notification-content">
-                            <label style={{ color: "#E11D48" }}>ERRO</label>
+                            <label style={{ color: "#E11D48" }}>ERRO!</label>
                             <span style={{ color: "#E11D48" }}>{note.message}</span>
                         </div>
                     </div>
@@ -47,7 +47,7 @@ const Notification = ({ note } : { note : NotificationType }) => {
                     <div id="notification-component-main" style={{ backgroundColor: "#FFF5DB" }}>
                         <WarningAmber style={{ color: "#e0b439" }}/>
                         <div id="notification-content">
-                            <label style={{ color: "#e0b439" }}>AVISO</label>
+                            <label style={{ color: "#e0b439" }}>AVISO!</label>
                             <span style={{ color: "#e0b439" }}>{note.message}</span>
                         </div>
                     </div>
