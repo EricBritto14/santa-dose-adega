@@ -8,6 +8,8 @@ import ProductList from "./pages/ProductList";
 import ProductForm from "./pages/ProductForm";
 import UserList from "./pages/UserList";
 import UserForm from "@Pages/UserForm";
+import ChangePassword from "@Pages/ChangePassword";
+import ProfileForm from "@Pages/ProfileForm";
 
 const routers = createHashRouter([
     {
@@ -42,6 +44,14 @@ const routers = createHashRouter([
                 path: "/user-form/:id",
                 element: <UserForm/>
             },
+            {
+                path: "/change-password",
+                element: <ChangePassword/>
+            },
+            {
+                path: "/profile-form",
+                element: <ProfileForm/>
+            }
         ]
     },
     {
