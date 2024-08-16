@@ -1,5 +1,8 @@
 
 export type User = {
+    idUsuario : number | null,
     username : string,
-    password : string
+    email: string,
+    senha : string,
+    is_admin: boolean,
 }
