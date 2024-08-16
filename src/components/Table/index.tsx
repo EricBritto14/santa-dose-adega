@@ -5,27 +5,35 @@ const Table = (
     { 
         children, 
         onNextPage, 
-        onReturnPage 
+        onReturnPage,
+        onExportData,
+        columns,
+        title,
     } : { 
         children : any, 
         onNextPage : any, 
-        onReturnPage : any 
+        onReturnPage : any,
+        onExportData : any,
+        columns : string[],
+        title : string
     }) => {
     return (
         <div id='table-component-main'>
             <div id='table-title' >
-                <h2>Lista de produtos</h2>
-                <button>
+                <h2>{title}</h2>
+                <button onClick={onExportData}>
                     Exportar Lista
                     <FileDownload/>
                 </button>
             </div>
             <div id='table-header' >
                 <ul>
-                    <li style={{ width: "100%" }} >Nome</li>
-                    <li>Validade</li>
-                    <li>Quantidade</li>
-                    <li>Preço</li>
+                    <li style={{ width: "100%" }} >{columns[0]}</li>
+                    {
+                        columns.map((column, index) => (
+                            index !== 0 && <li key={index}>{column}</li>
+                        ))
+                    }
                     <li style={{ justifyContent: "center", paddingLeft: "0px" }} >Opções</li>
                 </ul>
             </div>

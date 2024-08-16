@@ -1,4 +1,4 @@
-import { Liquor, AddCircleOutline, Logout, People, Assessment } from '@mui/icons-material'
+import { Liquor, AddCircleOutline, Logout, People, Assessment, PersonAddAlt } from '@mui/icons-material'
 import { useLocation, useNavigate } from 'react-router-dom';
 
 import './style.sass';
@@ -33,7 +33,7 @@ const SideBar = () => {
                 </li>
                 <li 
                     onClick={() => navigate('/product-form')}
-                    id={`${location.pathname === '/product-form' ? 'select-side-bar' : ''}`}
+                    id={`${location.pathname.indexOf('/product-form') !== -1 ? 'select-side-bar' : ''}`}
                 > 
                     <AddCircleOutline/>
                     Cadastro de produto
@@ -44,6 +44,13 @@ const SideBar = () => {
                 > 
                     <People/>
                     Lista de usuários
+                </li>
+                <li 
+                    onClick={() => navigate('/user-form')}
+                    id={`${location.pathname.indexOf('/user-form') !== -1 ? 'select-side-bar' : ''}`}
+                > 
+                    <PersonAddAlt/>
+                    Cadastro de usuário
                 </li>
             </ul>
             <button onClick={logout}>

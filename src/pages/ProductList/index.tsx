@@ -5,12 +5,13 @@ import { useNavigate } from "react-router-dom";
 import Title from '@Components/Title';
 import Table from '@Components/Table';
 import Search from '@Components/Search';
-import Modal from '@Components/Modal';
+import DeleteModal from '@Components/DeleteModal';
 import Loading from '@Components/Loading';
 import Notification, { NotificationType } from '@Components/Notification';
 
 import { listProducts, deleteProduct } from '@Api/services/products';
 
+import { exportExcelProduct } from '@Utils/exportExcel';
 import { Product } from '@Models/product';
 import formatPrice from '@Utils/formatPrice';
 import { mockProducts } from '@Utils/mock';
@@ -29,7 +30,7 @@ const HomePage = () => {
   const [note, setNote] = useState<NotificationType>({
     message: "",
     show: false,
-    type: "success"
+    type: "info"
   });
 
   const [results, setResults] = useState<Product[]>();
@@ -55,6 +56,7 @@ const HomePage = () => {
   async function delProduct(id : number) {
     setLoading(true);
     const deleteResponse = await deleteProduct(id);
+    setOpenModal(false);
 
     if (deleteResponse.error) {
       setNote({
@@ -64,10 +66,9 @@ const HomePage = () => {
       });
       setTimeout(() => setNote(prevState => ({
         ...prevState,
-        show : false,
+        show: false,
       })), 3000);
     } else {
-      setOpenModal(false);
       getAllProducts();
     }
 
@@ -84,7 +85,7 @@ const HomePage = () => {
       setNote({
         show: true,
         message: `${data.response.response.data.detail}`,
-        type: "warning"
+        type: "error"
       });
       setTimeout(() => setNote(prevState => ({
           ...prevState,
@@ -92,17 +93,11 @@ const HomePage = () => {
       })), 3000);
 
     } else {
-      setProductList(data[1]);
       setDataProduct(data[1]);
-      setRangeList(0, 10);
     }
 
     setLoading(false);
   }
-
-  useEffect(() => {
-    getAllProducts();
-  }, []);
 
   useEffect(() => {
     if(!search) {
@@ -122,6 +117,28 @@ const HomePage = () => {
     setRangeList(0, 10);
   }, [results]);
 
+  useEffect(() => {
+    setProductList(dataProduct);
+    setRangeList(0, 10);
+  }, [dataProduct]);
+
+  useEffect(() => {
+    getAllProducts();
+    
+    if(localStorage.getItem("product-operation")) {
+      setNote({
+        show: true,
+        message: `${localStorage.getItem("product-operation")}`,
+        type: "success"
+      });
+      setTimeout(() => setNote(prevState => ({
+        ...prevState,
+        show : false,
+      })), 3000);
+      localStorage.removeItem("product-operation");
+    }
+  }, []);
+
   return (
     <div id="product-list-main" >
       <div id='product-list-header' >
@@ -138,6 +155,9 @@ const HomePage = () => {
       <Table
         onNextPage={() => setRangeList(startPage + 10, 10)}
         onReturnPage={() => setRangeList(startPage - 10, 10)}
+        onExportData={() => exportExcelProduct(dataProduct, "Lista de Produtos")}
+        columns={["Nome", "Validade", "Quantidade", "Valor"]}
+        title="Lista de produtos"
       >
         {
           productList.map((product, index) => (
@@ -147,7 +167,11 @@ const HomePage = () => {
               <li style={{ paddingLeft: "20px", justifyContent: "left", minWidth: '180px' }}>{product.quantidade}</li>
               <li style={{ paddingLeft: "20px", justifyContent: "left", minWidth: '180px' }}>{formatPrice(product.valor)}</li>
               <li id="product-list-options" style={{ minWidth: "180px" }} >
-                <Edit/>
+                <Edit
+                  onClick={() => {
+                    navigate(`/product-form/${product.idProduto}`);
+                  }}
+                />
                 <Clear 
                   onClick={() => {
                     setOpenModal(true);
@@ -160,27 +184,14 @@ const HomePage = () => {
         }
       </Table>
 
-      <Modal isOpen={isOpenModal} setOpen={setOpenModal}>
-        <ReportGmailerrorred style={{ color: "#E11D48", width: '55px', height: "55px", backgroundColor: '#e11d4732', padding: '8px', borderRadius: '50%' }} />
-        <h2>{selectedProduct?.nome}</h2>
-        <p>Tem certeza que deseja deletar este item? Ao fazer isso todos os registros relacionados a ele serão deletados também!</p>
-        <div style={{ width: '100%' }} >
-          <button  
-            onClick={() => {
-              if(selectedProduct) delProduct(selectedProduct.idProduto)
-            }} 
-            style={{ backgroundColor: "#E11D48", color: "#FFF" }}
-          >
-            Deletar
-          </button>
-          <button
-            onClick={() => setOpenModal(false)} 
-            style={{ border: '1px solid #828080', backgroundColor: "#FFF" }}
-          >
-            Cancelar
-          </button>
-        </div>
-      </Modal>
+      <DeleteModal
+        description='Tem certeza que deseja deletar este item? Ao fazer isso todos os registros relacionados a ele serão deletados também!'
+        title={`${selectedProduct?.nome}`}
+        open={isOpenModal}
+        setOpen={setOpenModal}
+        onDelete={() => selectedProduct && selectedProduct.idProduto && delProduct(selectedProduct.idProduto)}
+      />
+      
       {
         loading && <Loading/>
       }
