@@ -1,0 +1,30 @@
+@use '../../styles/variables'
+
+#switch-component-main
+    width: 56px
+    height: 28px
+    border-radius: 14px
+    cursor: pointer
+    display: flex
+    align-items: center
+    padding: 0px 4px
+    background-color: variables.$color-green-primary
+
+#switch-radio-circle
+    width: 20px
+    height: 20px
+    border-radius: 50%
+    background-color: #FFF
+    box-shadow: rgb(204, 219, 232) 3px 3px 6px 0px inset, rgba(255, 255, 255, 0.5) -3px -3px 6px 1px inset
+
+    @keyframes circle-activation-animation
+        0%
+            transform: translateX(0)
+        100%
+            transform: translateX(27px)
+
+    @keyframes circle-disable-animation
+        0%
+            transform: translateX(27px)
+        100%
+            transform: translateX(0)
