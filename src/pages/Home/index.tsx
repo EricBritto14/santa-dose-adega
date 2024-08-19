@@ -4,6 +4,9 @@ import { useNavigate } from 'react-router-dom';
 
 import Title from '@Components/Title';
 import Menu, { OptionMenuType } from '@Components/Menu';
+import ChartLine from '@Components/charts/Line';
+import ChartColumn from '@Components/charts/Column';
+import ChartPizza from '@Components/charts/Pizza';
 
 import './style.sass';
 
@@ -34,6 +37,14 @@ const HomePage = () => {
                     }}
                 />
             </div>
+            <ChartLine
+                data={[]}
+                title='Produtos vendidos por mês'
+            />
+            <ChartColumn
+                data={[]}
+                title='Lucro obtido por mês'
+            />
         </div>
     )
 }
