@@ -8,13 +8,15 @@ const Input = ({
     type='text', 
     value, 
     setValue, 
-    width='100%' 
+    width='100%', 
+    placeholder=''
 } : { 
     title : string,
     type?: string, 
     value : string | number, 
     setValue : any, 
-    width? : string 
+    width? : string,
+    placeholder? : string
 }) => {  
     const [visibilityPassword, setVisibilityPassword] = useState<boolean>(false);
 
@@ -26,6 +28,7 @@ const Input = ({
                     type={type === "password" && visibilityPassword ? "text" : type} 
                     value={value}
                     onChange={(element) => setValue(element.target.value)}
+                    placeholder={placeholder}
                 />
                 {
                     type === "password" && (
