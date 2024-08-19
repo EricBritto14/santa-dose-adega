@@ -4,6 +4,8 @@ import { useNavigate } from 'react-router-dom';
 
 import Title from '@Components/Title';
 import Menu, { OptionMenuType } from '@Components/Menu';
+import Input from "@Components/Input";
+import Button from "@Components/Button";
 
 import { User } from "@Models/user";
 
@@ -25,6 +27,13 @@ const ProfileForm = () => {
         navigate('/login');
     }
 
+    const changeProfileParams = (key : string, value : any) => {
+        setProfile(prevState => ({
+            ...prevState,
+            [key] : value
+        }))
+    }
+
     return (
         <div id='profile-form-page-main'>
             <div id='profile-form-page-header'>
@@ -37,7 +46,7 @@ const ProfileForm = () => {
                     options={[
                         { label: "Editar perfil", onPress: () => navigate("/profile-form"), icon: <AccountBox/> },
                         { label: "Trocar senha", onPress: () => navigate("/change-password"), icon: <LockReset/> },
-                        { label: "Sair", onPress: () => logout(), icon: <Logout/> }
+                        { label: "Sair", onPress: () => logout(), icon: <Logout/> },
                     ] as OptionMenuType[]}
                     style={{
                         margin: "0px 10px 0px 20px"
@@ -45,7 +54,24 @@ const ProfileForm = () => {
                 />
             </div>
             <form id="profile-form-container">
-
+                <Input
+                    setValue={(value : string) => changeProfileParams("username", value)}
+                    title="Nome de usuário"
+                    value={profile.username}
+                    width="80%"
+                />
+                <Input
+                    setValue={(value : string) => changeProfileParams("email", value)}
+                    title="E-mail"
+                    value={profile.email}
+                    width="80%"
+                />
+                <Button
+                    title="Salvar"
+                    width="300px"
+                    type="submit"
+                    style="primary"
+                />
             </form>
         </div>
     )

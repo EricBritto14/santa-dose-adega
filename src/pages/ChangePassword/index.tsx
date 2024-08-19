@@ -1,18 +1,56 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { LockReset, Logout, AccountBox, AccountCircle } from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
 
 import Title from '@Components/Title';
 import Menu, { OptionMenuType } from '@Components/Menu';
+import Input from "@Components/Input";
+import Button from "@Components/Button";
+import Notification, { NotificationType } from "@Components/Notification";
 
 import './style.sass';
 
 const ChangePassword = () => {
     const navigate = useNavigate();
+    const [password, setPassword] = useState<string>("");
+    const [confPassword, setConfPassword] = useState<string>("");
+    const [note, setNote] = useState<NotificationType>({
+        message: "",
+        show: false,
+        type: "info"
+    });
 
     const logout = () => {
         localStorage.removeItem("token");
         navigate('/login');
+    }
+
+    async function handleSubmit() {
+        if(password !== "" && confPassword !== "") {
+            if (password === confPassword) {
+                setNote({
+                    message: "Impossível trocar a senha! Funcionalidade em desenvolvimento",
+                    show: true,
+                    type: "info"
+                });
+            } else {
+                setNote({
+                    message: "As senhas não são idênticas",
+                    show: true,
+                    type: "warning"
+                });
+            }
+        } else {
+            setNote({
+                message: "Preencha os campos vazios",
+                show: true,
+                type: "warning"
+            });
+        }
+        setTimeout(() => setNote(prevState => ({
+            ...prevState,
+            show: false,
+        })), 3000);
     }
 
     return (
@@ -34,9 +72,29 @@ const ChangePassword = () => {
                     }}
                 />
             </div>
-            <form id='password-form-content' onSubmit={() => {}}>
-
+            <form id='password-form-content' onSubmit={handleSubmit}>
+                <Input
+                    title="Nova senha"
+                    value={password}
+                    setValue={setPassword}
+                    type="password"
+                    width="80%"
+                />
+                <Input
+                    title="Repita a nova senha"
+                    value={confPassword}
+                    setValue={setConfPassword}
+                    type="password"
+                    width="80%"
+                />
+                <Button
+                    title="Salva"
+                    width="300px"
+                    type="submit"
+                />
             </form>
+            
+            <Notification note={note}/>
         </div>
     )
 }
