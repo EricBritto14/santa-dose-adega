@@ -9,12 +9,21 @@ export type NotificationType = {
     message: string
 }
 
-const Notification = ({ note } : { note : NotificationType }) => {
+const Notification = ({ note, setNote } : { note : NotificationType, setNote : any }) => {
     const styleAnimation = {
         animationName: "notification-animation",
         animationDuration: "3s",
         animationFillMode: "forwards",
     }
+
+    useEffect(() => {
+        if(note.show) {
+            setTimeout(() => setNote((prevState : NotificationType) => ({
+                ...prevState,
+                show : false,
+            })), 3000);
+        }
+    }, [note]);
     
     switch (note.type) {
         case "success":

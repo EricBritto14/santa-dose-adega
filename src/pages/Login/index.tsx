@@ -3,7 +3,7 @@ import { PersonOutline, LockOpen } from "@mui/icons-material";
 import { useNavigate } from 'react-router-dom';
 
 import { LoginRequest } from "@Api/services/auth";
-import { User } from "@Models/user";
+import { Auth } from "@Models/user";
 
 import Loading from "@Components/Loading";
 import Notification, { NotificationType } from "@Components/Notification";
@@ -18,7 +18,7 @@ const Login = () => {
         message: "",
         type: "success"
     });
-    const [user, setUser] = useState<User>({
+    const [user, setUser] = useState<Auth>({
         username: "",
         password: ""
     });
@@ -39,10 +39,6 @@ const Login = () => {
                 message: `${data.response.response.data.detail}`,
                 type: "error"
             });
-            setTimeout(() => setError(prevState => ({
-                ...prevState,
-                show : false,
-            })), 3000);
             setLoading(false);
         } else {
             localStorage.setItem("token", data.response.token);
@@ -58,7 +54,10 @@ const Login = () => {
 
     return (
         <div id="login-page-main">
-            <Notification note={error}/>
+            <Notification 
+                note={error}
+                setNote={setError}
+            />
             {
                 loading && <Loading/>
             }

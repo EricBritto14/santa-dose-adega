@@ -61,10 +61,6 @@ const ProductForm = () => {
                     show: true,
                     type: "error"
                 });
-                setTimeout(() => setNote(prevState => ({
-                    ...prevState,
-                    show: false,
-                })), 3000);
             } else {
                 setProduct({
                     ...data[1],
@@ -107,10 +103,6 @@ const ProductForm = () => {
                         show: true,
                         type: "error"
                     });
-                    setTimeout(() => setNote(prevState => ({
-                        ...prevState,
-                        show: false,
-                    })), 3000);
                 } else {
                     localStorage.setItem("product-operation", "Produto atualizado!");
                     navigate("/product-list");
@@ -123,10 +115,6 @@ const ProductForm = () => {
                         show: true,
                         type: "error"
                     });
-                    setTimeout(() => setNote(prevState => ({
-                        ...prevState,
-                        show: false,
-                    })), 3000);
                 } else {
                     localStorage.setItem("product-operation", "Produto criado!");
                     navigate("/product-list");
@@ -139,10 +127,6 @@ const ProductForm = () => {
                 show: true,
                 type: "warning"
             });
-            setTimeout(() => setNote(prevState => ({
-                ...prevState,
-                show: false
-            })), 3000);
         }
     }
 
@@ -224,7 +208,10 @@ const ProductForm = () => {
             {
                 loading && <Loading/>
             }
-            <Notification note={note}/>
+            <Notification 
+                note={note}
+                setNote={setNote}
+            />
         </div>
     );
 }

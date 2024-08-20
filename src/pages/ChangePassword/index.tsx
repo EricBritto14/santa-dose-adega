@@ -47,10 +47,6 @@ const ChangePassword = () => {
                 type: "warning"
             });
         }
-        setTimeout(() => setNote(prevState => ({
-            ...prevState,
-            show: false,
-        })), 3000);
     }
 
     return (
@@ -94,7 +90,10 @@ const ChangePassword = () => {
                 />
             </form>
             
-            <Notification note={note}/>
+            <Notification 
+                note={note}
+                setNote={setNote}
+            />
         </div>
     )
 }

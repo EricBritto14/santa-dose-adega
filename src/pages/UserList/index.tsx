@@ -66,10 +66,6 @@ const UserList = () => {
                 show: true,
                 type: "error"
             });
-            setTimeout(() => setNote(prevState => ({
-                ...prevState,
-                show: false,
-            })), 3000);
         } else {
             getAllUsers();
         }
@@ -88,10 +84,6 @@ const UserList = () => {
                 message: `${data.response.response.data.detail}`,
                 type: "error"
             });
-            setTimeout(() => setNote(prevState => ({
-                ...prevState,
-                show : false,
-            })), 3000);
         } else {
             setDataUsers(data[1]);
         }
@@ -129,10 +121,6 @@ const UserList = () => {
                 message: `${localStorage.getItem("user-operation")}`,
                 type: "success"
             });
-            setTimeout(() => setNote(prevState => ({
-                ...prevState,
-                show : false,
-            })), 3000);
             localStorage.removeItem("user-operation");
         }
     }, []);
@@ -211,7 +199,10 @@ const UserList = () => {
             {
                 loading && <Loading/>
             }
-            <Notification note={note}/>
+            <Notification 
+                note={note}
+                setNote={setNote}
+            />
         </div>
     )
 }

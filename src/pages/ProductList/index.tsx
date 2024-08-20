@@ -69,10 +69,6 @@ const HomePage = () => {
         message: `${deleteResponse.response.response.data.detail}`,
         type: "error"
       });
-      setTimeout(() => setNote(prevState => ({
-        ...prevState,
-        show: false,
-      })), 3000);
     } else {
       getAllProducts();
     }
@@ -92,10 +88,6 @@ const HomePage = () => {
         message: `${data.response.response.data.detail}`,
         type: "error"
       });
-      setTimeout(() => setNote(prevState => ({
-          ...prevState,
-          show : false,
-      })), 3000);
 
     } else {
       setDataProduct(data[1]);
@@ -136,10 +128,6 @@ const HomePage = () => {
         message: `${localStorage.getItem("product-operation")}`,
         type: "success"
       });
-      setTimeout(() => setNote(prevState => ({
-        ...prevState,
-        show : false,
-      })), 3000);
       localStorage.removeItem("product-operation");
     }
   }, []);
@@ -213,7 +201,10 @@ const HomePage = () => {
       {
         loading && <Loading/>
       }
-      <Notification note={note}/>
+      <Notification 
+        note={note}
+        setNote={setNote}
+      />
     </div>
   )
 }

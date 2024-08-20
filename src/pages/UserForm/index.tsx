@@ -55,10 +55,6 @@ const UserForm = () => {
                     show: true,
                     type: "error"
                 });
-                setTimeout(() => setNote(prevState => ({
-                    ...prevState,
-                    show: false,
-                })), 3000);
             } else {
                 setUser(data[1])
             }
@@ -83,10 +79,6 @@ const UserForm = () => {
                         show: true,
                         type: "error"
                     });
-                    setTimeout(() => setNote(prevState => ({
-                        ...prevState,
-                        show: false,
-                    })), 3000);
                 } else {
                     localStorage.setItem("user-operation", "Usuário atualizado!");
                     navigate("/user-list");
@@ -100,10 +92,6 @@ const UserForm = () => {
                         show: true,
                         type: "error"
                     });
-                    setTimeout(() => setNote(prevState => ({
-                        ...prevState,
-                        show: false,
-                    })), 3000);
                 } else {
                     localStorage.setItem("user-operation", "Usuário criado!");
                     navigate("/user-list");
@@ -116,10 +104,6 @@ const UserForm = () => {
                 show: true,
                 type: "warning"
             });
-            setTimeout(() => setNote(prevState => ({
-                ...prevState,
-                show: false,
-            })), 3000);
         }
     }
 
@@ -185,7 +169,10 @@ const UserForm = () => {
             {
                 loading && <Loading/>
             }
-            <Notification note={note}/>
+            <Notification 
+                note={note}
+                setNote={setNote}
+            />
         </div>
     )
 }
