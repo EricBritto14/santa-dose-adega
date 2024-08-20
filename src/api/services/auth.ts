@@ -1,8 +1,8 @@
 import { selectMethod } from '@Api/methods';
 import { findRouter }  from '@Api/mapRouters';
-import { User } from '@Models/user';
+import { Auth } from '@Models/user';
 
-export async function LoginRequest(user : User) {
+export async function LoginRequest(user : Auth) {
     let request = await findRouter("login");
 
     return selectMethod(

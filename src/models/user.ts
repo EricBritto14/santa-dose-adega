@@ -6,3 +6,8 @@ export type User = {
     senha : string,
     is_admin: boolean,
 }
+
+export type Auth = {
+    username : string,
+    password : string,
+}
