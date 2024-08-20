@@ -1,4 +1,3 @@
-import React from "react";
 import { ReportGmailerrorred } from "@mui/icons-material";
 
 import Modal from "@Components/Modal";

@@ -1,6 +1,4 @@
-import React from "react";
-
-import './style.sass'
+import './style.sass';
 
 const Button = ({ 
     title, 
