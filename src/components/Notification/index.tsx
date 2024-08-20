@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import { useEffect } from "react";
 import { CheckCircleOutline, ErrorOutline, HighlightOff, WarningAmber } from '@mui/icons-material'
 
 import "./style.sass";

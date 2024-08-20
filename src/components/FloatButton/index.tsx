@@ -1,4 +1,3 @@
-import React from 'react';
 import './style.sass';
 
 const FloatButton = ({onFunction, icon} : {onFunction : any, icon: any}) => {

@@ -1,4 +1,3 @@
-import React from "react";
 import { Add, Remove } from '@mui/icons-material';
 
 import './style.sass';

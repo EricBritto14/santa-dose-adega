@@ -1,4 +1,3 @@
-import React from 'react';
 import './style.sass';
 
 const Title = ({title, subTitle} : {title : string, subTitle: string}) => {

@@ -17,10 +17,7 @@ const DeleteModal = ({
     setOpen : any,
 }) => {
     return (
-        <Modal
-            isOpen={open}
-            setOpen={setOpen}
-        >
+        <Modal isOpen={open}>
             <ReportGmailerrorred style={{ color: "#E11D48", width: '55px', height: "55px", backgroundColor: '#e11d4732', padding: '8px', borderRadius: '50%' }} />
             <h2>{title}</h2>
             <p>{description}</p>

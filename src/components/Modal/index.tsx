@@ -1,8 +1,6 @@
-import React from 'react';
-
 import './style.sass';
 
-const Modal = ({ isOpen, setOpen, children } : { isOpen:boolean, setOpen:any, children:any }) => {
+const Modal = ({ isOpen, children } : { isOpen:boolean, children:any }) => {
     return(
         <>
             {

@@ -1,9 +1,9 @@
 export const styleSelect = {
-    container: (provided:any, state:any) => ({
+    container: (provided:any) => ({
         ...provided,
         width: "150px",
     }),
-    control: (provided:any, state:any) => ({
+    control: (provided:any) => ({
         ...provided,
         border: "3px solid #f4f4f4",
         borderTopRightRadius: "6px",
@@ -11,17 +11,17 @@ export const styleSelect = {
         cursor: "pointer",
         height: "40px"
     }),
-    singleValue: (provided:any, state:any) => ({
+    singleValue: (provided:any) => ({
         ...provided,
         // padding: "0px",
         top: "6px",
         position: "absolute",
     }),
-    indicatorSeparator: (provided:any, state:any) => ({
+    indicatorSeparator: (provided:any) => ({
         ...provided,
         display: "none",
     }),
-    dropdownIndicator: (provided:any, state:any) => ({
+    dropdownIndicator: (provided:any) => ({
         ...provided,
         top: "0px",
         left: "78px",

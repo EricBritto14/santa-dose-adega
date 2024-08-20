@@ -1,12 +1,12 @@
-import React from 'react';
 import { LockReset, Logout, AccountBox, AccountCircle } from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
+
+import { dataConst } from '@Utils/chart.const';
 
 import Title from '@Components/Title';
 import Menu, { OptionMenuType } from '@Components/Menu';
 import ChartLine from '@Components/charts/Line';
 import ChartColumn from '@Components/charts/Column';
-import ChartPizza from '@Components/charts/Pizza';
 
 import './style.sass';
 
@@ -38,11 +38,11 @@ const HomePage = () => {
                 />
             </div>
             <ChartLine
-                data={[]}
+                data={dataConst}
                 title='Produtos vendidos por mês'
             />
             <ChartColumn
-                data={[]}
+                data={dataConst}
                 title='Lucro obtido por mês'
             />
         </div>

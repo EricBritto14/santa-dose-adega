@@ -1,19 +1,19 @@
 export const selectStyle = {
-    container: (provided:any, state:any) => ({
+    container: (provided:any) => ({
         ...provided,
         width: "100%",
     }),
-    control: (provided:any, state:any) => ({
+    control: (provided:any) => ({
         ...provided,
         border: "3px solid #ECECEC",
         cursor: "pointer",
         borderRadius: "6px",
     }),
-    indicatorSeparator: (provided:any, state:any) => ({
+    indicatorSeparator: (provided:any) => ({
         ...provided,
         display: "none",
     }),
-    dropdownIndicator: (provided:any, state:any) => ({
+    dropdownIndicator: (provided:any) => ({
         ...provided,
         color: "#71767C",
         '&:hover': {

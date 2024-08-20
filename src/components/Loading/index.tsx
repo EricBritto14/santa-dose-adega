@@ -1,5 +1,3 @@
-import React, { useState } from "react";
-
 import "./style.sass";
 
 const Loading = () => {
