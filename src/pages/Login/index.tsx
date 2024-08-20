@@ -62,7 +62,7 @@ const Login = () => {
                 loading && <Loading/>
             }
             <form onSubmit={handleSubmit}>
-                <img src="../../../public/beer.svg" alt="beer" />
+                <img src="../../../public/logo.png" alt="beer" />
                 <div id="input-content-login">
                     <PersonOutline/>
                     <input 
