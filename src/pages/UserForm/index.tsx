@@ -10,7 +10,7 @@ import Notification, { NotificationType } from "@Components/Notification";
 import Loading from "@Components/Loading";
 
 import { User } from "@Models/user";
-import { getUser, updateUser, createUser } from "@Api/services/users";
+import { getUser, patchUser, createUser } from "@Api/services/users";
 
 import './style.sass';
 
@@ -70,9 +70,12 @@ const UserForm = () => {
         ) {
             setLoading(true);
             if(user.idUsuario) {
-                console.log("upda")
-                const respUpdate = await updateUser(user);
-                console.log("response update: ", respUpdate);
+                const respUpdate = await patchUser({
+                    idUsuario : user.idUsuario,
+                    username : user.username,
+                    email : user.email,
+                    is_admin : user.is_admin
+                });
                 if(respUpdate.error) {
                     setNote({
                         message: `${respUpdate.response.response.data.detail}`,
@@ -85,7 +88,6 @@ const UserForm = () => {
                 }
             } else {
                 const respCreate = await createUser(user);
-                console.log("response create: ", respCreate);
                 if(respCreate.error) {
                     setNote({
                         message: `${respCreate.response.response.data.detail}`,
@@ -147,13 +149,17 @@ const UserForm = () => {
                     />
                 </div>
                 <div id="user-form-container">
-                    <Input
-                        title="Senha"
-                        value={user.senha}
-                        setValue={(value : string) => changeUserParams('senha', value)}
-                        width="45%"
-                        type="password"
-                    />
+                    {
+                        !user.idUsuario && (
+                            <Input
+                                title="Senha"
+                                value={user.senha}
+                                setValue={(value : string) => changeUserParams('senha', value)}
+                                width="45%"
+                                type="password"
+                            />
+                        )
+                    }
                     <div id="user-form-switch-container">
                         <label>Permissão de administrador:</label>
                         <Switch

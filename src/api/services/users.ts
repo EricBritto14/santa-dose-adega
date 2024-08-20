@@ -31,8 +31,19 @@ export async function getUser(id : number) {
     );
 }
 
-export async function updateUser(user : User) {
-    let request = await findRouter("updateUser");
+export async function putUser(user : User) {
+    let request = await findRouter("putUser");
+    let url : string = `${request.router}${user.idUsuario}`
+
+    return selectMethod(
+        url,
+        request.method,
+        user
+    );
+}
+
+export async function patchUser(user : Partial<User>) {
+    let request = await findRouter("patchUser");
     let url : string = `${request.router}${user.idUsuario}`
 
     return selectMethod(

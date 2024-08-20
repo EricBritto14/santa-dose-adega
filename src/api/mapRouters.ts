@@ -57,8 +57,13 @@ const backEndRouters : Router[] = [
     },
     {
         router: "/usuarios/atualizar_by_id/",
-        name: "updateUser",
+        name: "putUser",
         method: "PUT",
+    },
+    {
+        router: "/usuarios/atualizar_by_id/",
+        name: "patchUser",
+        method: "PATCH",
     },
     {
         router: "/users/delete_by_id/",

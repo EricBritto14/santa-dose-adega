@@ -17,8 +17,8 @@ export const category_select : TypeSelect[] = [
         label: 'Alcoólicas',
     },
     {
-        value: 'Doces',
-        label: 'Doces',
+        value: 'Tabacaria',
+        label: 'Tabacaria',
     },
 ]
 

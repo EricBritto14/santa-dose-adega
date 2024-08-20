@@ -67,8 +67,20 @@ export async function selectMethod(
             }
 
         case "PUT":
-            const putResponse = axiosInstance.put(url, body, config);
-            return putResponse;
+            try {
+                const putResponse = await axiosInstance.put(url, body, config);
+                return { error: false, response : putResponse };
+            } catch (error) {
+                return { error: true, response : error };
+            }
+
+        case "PATCH":
+            try {
+                const patchResponse = await axiosInstance.patch(url, body, config);
+                return { error: false, response: patchResponse };
+            } catch (error) {
+                return { error: true, response: error };
+            }
 
         case "DELETE":
             try {
