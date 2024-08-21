@@ -13,6 +13,7 @@ export default defineConfig({
       "@Models": path.resolve(__dirname, "src/models"),
       "@Utils": path.resolve(__dirname, "src/utils"),
       "@Api": path.resolve(__dirname, "src/api"),
+      "@Public": path.resolve(__dirname, "public"),
     }
   },
 })

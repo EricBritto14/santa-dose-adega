@@ -27,7 +27,8 @@
       "@Pages/*": ["./src/pages/*"],
       "@Models/*": ["./src/models/*"],
       "@Utils/*": ["./src/utils/*"],
-      "@Api/*": ["./src/api/*"]
+      "@Api/*": ["./src/api/*"],
+      "@Public/*": ["./public/*"]
     },
   },
   "include": [

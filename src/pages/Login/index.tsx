@@ -8,6 +8,8 @@ import { Auth } from "@Models/user";
 import Loading from "@Components/Loading";
 import Notification, { NotificationType } from "@Components/Notification";
 
+import Logo from "@Public/logo.png";
+
 import "./style.sass";
 
 const Login = () => {
@@ -62,7 +64,7 @@ const Login = () => {
                 loading && <Loading/>
             }
             <form onSubmit={handleSubmit}>
-                <img src="../../../public/logo.png" alt="beer" />
+                <img src={Logo} alt="beer" />
                 <div id="input-content-login">
                     <PersonOutline/>
                     <input 
