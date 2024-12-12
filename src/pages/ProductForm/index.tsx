@@ -32,7 +32,8 @@ const ProductForm = () => {
         nome: '',
         quantidade: 1,
         tipo: '',
-        valor: 0,
+        valor_compra: 0,
+        valor_venda: 0,
         data_cadastro: null,
         data_validade: '',
         tamanho: '',
@@ -88,7 +89,8 @@ const ProductForm = () => {
             && product.quantidade > 0
             && product.tamanho !== ""
             && product.tipo !== ""
-            && product.valor > 0
+            && product.valor_compra > 0
+            && product.valor_venda > 0
         ) {
             setLoading(true);
             const submitProduct : Product = {
@@ -175,14 +177,22 @@ const ProductForm = () => {
                         title="Data de validade"
                         value={product.data_validade}
                         setValue={(value : string) => changeProduct('data_validade', value)}
-                        width="45%"
+                        width="30%"
                         type="date"
                     />
                     <Input
-                        title="Preço"
-                        value={product.valor}
+                        title="Preço Compra"
+                        value={product.valor_compra}
                         setValue={(value : number) => changeProduct('valor', value)}
-                        width="45%"
+                        width="30%"
+                        type="number"
+                    />
+
+                    <Input
+                        title="Preço Venda"
+                        value={product.valor_venda}
+                        setValue={(value : number) => changeProduct('valor', value)}
+                        width="30%"
                         type="number"
                     />
                 </div>

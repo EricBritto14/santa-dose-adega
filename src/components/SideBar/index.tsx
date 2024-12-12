@@ -24,6 +24,10 @@ const SideBar = () => {
                     <Assessment /> 
                     Visão Geral
                 </li>
+                <li onClick={() => navigate('/daily-sells')} id={`${location.pathname === '/daily-sells' ? 'select-side-bar' : ''}`}>
+                    <Assessment /> 
+                    Vendas Diárias
+                </li>
                 <li 
                     onClick={() => navigate('/product-list')}
                     id={`${location.pathname === '/product-list' ? 'select-side-bar' : ''}`}

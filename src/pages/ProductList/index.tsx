@@ -103,7 +103,8 @@ const HomePage = () => {
       let searchResult : Product[] = dataProduct.filter((element) => 
         element.nome.toLowerCase().indexOf(search.toLowerCase()) != -1 ||
         element.data_validade.toLowerCase().indexOf(search.toLowerCase()) != -1 ||
-        element.valor.toString().indexOf(search.toLowerCase()) != -1 ||
+        element.valor_compra.toString().indexOf(search.toLowerCase()) != -1 ||
+        element.valor_venda.toString().indexOf(search.toLowerCase()) != -1 ||
         element.quantidade.toString().indexOf(search.toLowerCase()) != -1
       );
       setResults(searchResult);
@@ -162,7 +163,7 @@ const HomePage = () => {
         onNextPage={() => setRangeList(startPage + 10, 10)}
         onReturnPage={() => setRangeList(startPage - 10, 10)}
         onExportData={() => exportExcelProduct(dataProduct, "Lista de Produtos")}
-        columns={["Nome", "Validade", "Quantidade", "Valor"]}
+        columns={["Nome", "Validade", "Quantidade", "Valor", "% Ganho No Produto"]}
         title="Lista de produtos"
       >
         {
@@ -171,7 +172,8 @@ const HomePage = () => {
               <li style={{ width: "100%", justifyContent: "left", paddingLeft: "20px" }}>{product.nome}</li>
               <li style={{ paddingLeft: "20px", justifyContent: "left", minWidth: '180px' }}>{product.data_validade}</li>
               <li style={{ paddingLeft: "20px", justifyContent: "left", minWidth: '180px' }}>{product.quantidade}</li>
-              <li style={{ paddingLeft: "20px", justifyContent: "left", minWidth: '180px' }}>{formatPrice(product.valor)}</li>
+              <li style={{ paddingLeft: "20px", justifyContent: "left", minWidth: '180px' }}>{formatPrice(product.valor_compra)}</li>
+              <li style={{ paddingLeft: "20px", justifyContent: "left", minWidth: '180px'}}>{formatPrice(product.valor_venda)}</li>
               <li id="product-list-options" style={{ minWidth: "180px" }} >
                 <Edit
                   onClick={() => {

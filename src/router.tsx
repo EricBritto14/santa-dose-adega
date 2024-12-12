@@ -10,6 +10,7 @@ import UserList from "./pages/UserList";
 import UserForm from "@Pages/UserForm";
 import ChangePassword from "@Pages/ChangePassword";
 import ProfileForm from "@Pages/ProfileForm";
+import DailySells from "@Pages/DailySells/Index";
 
 const routers = createHashRouter([
     {
@@ -19,6 +20,10 @@ const routers = createHashRouter([
             {
                 path: "/",
                 element: <HomePage/>
+            },
+            {
+                path: "/daily-sells",
+                element: <DailySells/>
             },
             {
                 path: "/product-list",

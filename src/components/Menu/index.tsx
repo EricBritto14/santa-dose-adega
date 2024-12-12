@@ -8,17 +8,7 @@ export type OptionMenuType = {
     icon : any
 }
 
-const Menu = ({
-    icon,
-    options,
-    style = {},
-    boxSide = "left",
-} : {
-    icon : any,
-    options : OptionMenuType[],
-    style? : any
-    boxSide? : "left" | "right"
-}) => {
+const Menu = ({icon, options, style = {}, boxSide = "left",} : { icon : any, options : OptionMenuType[], style? : any, boxSide? : "left" | "right"}) => {
     const [openMenu, setOpenMenu] = useState<boolean>(false);
 
     return (
