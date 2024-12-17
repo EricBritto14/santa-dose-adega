@@ -1,4 +1,3 @@
-
 export type Product = {
   idProduto: number | null,
   tipo: string,

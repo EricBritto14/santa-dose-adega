@@ -5,21 +5,74 @@ export type TypeSelect = {
 
 export const category_select : TypeSelect[] = [
     {
-        value: 'Comida',
-        label: 'Comida',
+        value: 'Barrigudinhas',
+        label: 'Barrigudinhas',
     },
     {
-        value: 'Não alcoólicas',
-        label: 'Não alcoólicas',
+        value: 'Refrigerante Descartável',
+        label: 'Refrigerante Descartável',
     },
     {
-        value: 'Alcoólicas',
-        label: 'Alcoólicas',
+        value: 'Refrigerante Retornável',
+        label: 'Refrigerante Retornável',
     },
     {
-        value: 'Tabacaria',
-        label: 'Tabacaria',
+        value: 'Refrigerante Lata',
+        label: 'Refrigerante Lata',
     },
+    {
+        value: 'Doses',
+        label: 'Doses',
+    },
+    {
+        value: 'Vinhos',
+        label: 'Vinhos',
+    },
+    {
+        value: 'Energéticos De Lata',
+        label: 'Energéticos De Lata',
+    },
+    {
+        value: 'Energéticos 2L',
+        label: 'Energéticos 2L',
+    },
+    {
+        value: 'Cigarros',
+        label: 'Cigarros',
+    },
+    {
+        value: 'Palheiros',
+        label: 'Palheiros',
+    },
+    {
+        value: 'Sedas',
+        label: 'Sedas',
+    },
+    {
+        value: 'Carvão',
+        label: 'Carvão',
+    },
+    {
+        value: 'Gelo',
+        label: 'Gelo',
+    },
+    {
+        value: 'Fabitos',
+        label: 'Fabitos',
+    },
+    {
+        value: 'Batata',
+        label: 'Batata',
+    },
+    {
+        value: 'Torcida',
+        label: 'Torcida',
+    },
+    {
+        value: 'Doces',
+        label: 'Doces',
+    },
+
 ]
 
 export const unit_of_measure_select : TypeSelect[] = [

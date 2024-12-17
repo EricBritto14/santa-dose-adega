@@ -11,6 +11,7 @@ import UserForm from "@Pages/UserForm";
 import ChangePassword from "@Pages/ChangePassword";
 import ProfileForm from "@Pages/ProfileForm";
 import DailySells from "@Pages/DailySells/Index";
+import MonthlySells from "@Pages/MonthlySells";
 
 const routers = createHashRouter([
     {
@@ -24,6 +25,10 @@ const routers = createHashRouter([
             {
                 path: "/daily-sells",
                 element: <DailySells/>
+            },
+            {
+                path:"/monthly-sells",
+                element: <MonthlySells/>
             },
             {
                 path: "/product-list",

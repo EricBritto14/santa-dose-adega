@@ -1,4 +1,4 @@
-import { Liquor, AddCircleOutline, Logout, People, Assessment, PersonAddAlt } from '@mui/icons-material'
+import { Liquor, AddCircleOutline, Logout, People, Assessment, AccountBalance, Savings, PersonAddAlt } from '@mui/icons-material'
 import { useLocation, useNavigate } from 'react-router-dom';
 
 import './style.sass';
@@ -25,8 +25,12 @@ const SideBar = () => {
                     Visão Geral
                 </li>
                 <li onClick={() => navigate('/daily-sells')} id={`${location.pathname === '/daily-sells' ? 'select-side-bar' : ''}`}>
-                    <Assessment /> 
+                    <Savings /> 
                     Vendas Diárias
+                </li>
+                <li onClick={() => navigate('/monthly-sells')} id={`${location.pathname === '/monthly-sells' ? 'select-side-bar' : ''}`}>
+                    <AccountBalance /> 
+                    Registro Mensal
                 </li>
                 <li 
                     onClick={() => navigate('/product-list')}

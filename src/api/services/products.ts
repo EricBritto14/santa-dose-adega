@@ -12,6 +12,16 @@ export async function createProduct(product : Product) {
     );
 }
 
+export async function getProductByName(product: string) {
+    let request = await findRouter("getProductName");
+    let url : string = `${request.router}${product}`
+
+    return selectMethod(
+        url,
+        request.method,
+    );
+}
+
 export async function listProducts() {
     let request = await findRouter("listProduct");
 

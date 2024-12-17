@@ -5,16 +5,16 @@ import "./style.sass"
 const DailySells = () =>{
     return(
         <div id="product-list-main">
+            
             <div id="product-list-header">
                 <Title
                 title='Vendas Diárias'
                 subTitle='Veja as vendas diárias/mensal da Adega Santa Dose'
                 />
 
-                <button>
-                    oi
-                </button>
+                
             </div>
+            
             
             <TableSales
                 title="Vendas Diárias"

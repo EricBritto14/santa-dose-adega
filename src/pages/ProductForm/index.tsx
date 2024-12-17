@@ -183,7 +183,7 @@ const ProductForm = () => {
                     <Input
                         title="Preço Compra"
                         value={product.valor_compra}
-                        setValue={(value : number) => changeProduct('valor', value)}
+                        setValue={(value : number) => changeProduct('valor_compra', value)}
                         width="30%"
                         type="number"
                     />
@@ -191,7 +191,7 @@ const ProductForm = () => {
                     <Input
                         title="Preço Venda"
                         value={product.valor_venda}
-                        setValue={(value : number) => changeProduct('valor', value)}
+                        setValue={(value : number) => changeProduct('valor_venda', value)}
                         width="30%"
                         type="number"
                     />

@@ -12,6 +12,11 @@ const backEndRouters : Router[] = [
         method: "POST_FORM_ENCODED"
     },
 
+    {
+        router: "/produtos/produto_name/",
+        name: "getProductName",
+        method: "GET"
+    },
 
     {
         router: "/produtos/produto_id/",

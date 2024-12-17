@@ -1,4 +1,5 @@
 import React, { useState } from "react"
+import ButtonValue from "@Components/ButtonValue";
 import './style.sass';
 
 const TableSales = (
@@ -7,14 +8,14 @@ const TableSales = (
       dayColumnTitle,
       salesColumTitle,
       totalLabel,
-      daysInMonth
+      daysInMonth,
     }
      : {
         title?: string,
         dayColumnTitle ?: string,
         salesColumTitle ?: string,
         totalLabel?: string,
-        daysInMonth : number
+        daysInMonth : number,
     })  =>{
     //Estado para armazenar os valores de cada dia do mês
     const [sales, setSales] = useState(Array(daysInMonth).fill(""))
@@ -57,8 +58,12 @@ const TableSales = (
                             <td>{totalLabel}</td>
                             <td>{calculoTotal().toFixed(2)}</td>
                         </tr>
+
+                        
                     </tbody>
+                    
                 </table>
+
             </div>
         </div>
     )
